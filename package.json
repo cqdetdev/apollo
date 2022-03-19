@@ -1,0 +1,37 @@
+{
+  "name": "apollo",
+  "main": "dist/mod.js",
+  "devDependencies": {
+    "@swc/cli": "^0.1.45",
+    "@swc/core": "^1.2.59",
+    "@types/nodemon": "^1.19.0",
+    "chokidar": "^3.5.1",
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "prod:start": "node --optimize_for_size --max_old_space_size=920 --gc_interval=100 dist/mod.js",
+    "dev:start": "node dist/mod.js",
+    "build": "swc src -d dist --config-file .swcrc",
+    "dev": "concurrently \"swc --watch --out-dir dist src\" \"nodemon -L ./dist/mod.js\"",
+    "test": "node tests/test.js"
+  },
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^15.12.2",
+    "@types/os-utils": "^0.0.1",
+    "@types/pg": "^8.6.0",
+    "@types/redis": "^2.8.29",
+    "chalk": "^4.1.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "eris": "git+https://github.com/bsian03/eris#components",
+    "os-utils": "^0.0.14",
+    "perf_hooks": "^0.0.1",
+    "pg": "^8.6.0",
+    "redis": "^3.1.2",
+    "swc": "^1.0.11",
+    "tsc": "^2.0.3",
+    "typescript": "^4.3.4"
+  }
+}
